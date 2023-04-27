@@ -1,0 +1,7 @@
+.spinner-container{
+    margin-left: 40px;
+}
+.loading-spinner svg{
+    height: 400px;
+    margin: 0 auto;
+}

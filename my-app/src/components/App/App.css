@@ -1,0 +1,22 @@
+:root{
+  --title-color: hsl(217, 39%, 29%);
+  --dark-black: #333333;
+  --font-style: Roboto;
+  --font-size-large: 18px; 
+  --font-size-medium: 15px;
+  --header--bgcolor: #0a0725;
+  --searchPanel--bgcolor: #3F3351;
+  --card-dark-bgcolor: #254B62 ;
+  --card-dark-color: rgb(158, 154, 154);
+  --text--medium-size: 15px;
+  --text--small-size: 12px;
+}
+body{
+  background-color: (var(--bg-clr));
+  scrollbar-width: none;
+}
+.container{
+  max-width: 1280px;
+  margin: 0 auto;
+}
+

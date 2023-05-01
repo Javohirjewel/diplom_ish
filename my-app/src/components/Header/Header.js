@@ -15,17 +15,17 @@ function Header(props) {
       setIsActive(false)
       setFilterData(e.target.innerText)
   }
-  const onChangeLanguage = (e) => {
-    setLanguage(e.target.innerText)
-    setisLanguageActive(false)
-  }
+  // const onChangeLanguage = (e) => {
+  //   setLanguage(e.target.innerText)
+  //   setisLanguageActive(false)
+  // }
 
     return (
       <div className={darkmode ? "header darktheme " : " header"}>
         <div className='header__container'>
-          <div className = 'header__logo'>
+          <a href='#' className = 'header__logo'>
             <img src={rasm} alt = 'Logo'/>
-          </div>
+          </a>
           <div className = 'header__navbar'>
               <div className={darkmode ? 'dark phone' : "phone"}>
                 <img src={"https://upload.wikimedia.org/wikipedia/commons/9/90/Telephone_receiver.svg"} alt = "s"></img>

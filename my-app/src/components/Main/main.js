@@ -1,6 +1,6 @@
 import './main.css';
 import Loader from  '../loader/loader'
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
 
 function Main(props) {
@@ -62,13 +62,13 @@ function Main(props) {
                             </div>
                         </li>
                         <li className = 'filter__link'>
-                            <a href = '#' className='filter__link__href'>Kasb Hunar o'rgatish markazlari </a>
+                            <div className='filter__link__href' onClick={(e) => changeValue(e.target)}>Kasb Hunar o'rgatish markazlari </div>
                         </li>
                         <li className = 'filter__link'>
-                            <a href = '#' className='filter__link__href'> IT markazlari</a>
+                            <div className='filter__link__href' onClick={(e) => changeValue(e.target)}>IT markazlari </div>
                         </li>
                         <li className = 'filter__link'>
-                            <a href = '#' className='filter__link__href'> Bolalar uchun tayyorlov kurslari</a>
+                            <div className='filter__link__href' onClick={(e) => changeValue(e.target)}>Bolalar uchun tayyorlov markazlari </div>
                         </li>
                     </ul>
                 </div>

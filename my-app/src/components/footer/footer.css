@@ -1,0 +1,49 @@
+.footer{
+    background-color: var(--searchPanel--bgcolor);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footer__container{
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer__item{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+.footer__banner{
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+}
+.banner__title{
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+.banner__title:hover{
+    color: green;
+    transition: 0.3s
+}
+.creator{
+    /* width: %; */
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    width: 30%;
+}
+.phone__number{
+    margin-top: 5px;
+}
+.footer__link{
+    display: flex;
+    justify-content: space-between;
+}

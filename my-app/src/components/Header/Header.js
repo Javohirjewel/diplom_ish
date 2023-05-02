@@ -3,17 +3,17 @@ import './Header.css'
 import React from 'react';
 import {useState } from 'react';
 function Header(props) {
-  let {darkmode, onCahngeTheme, setFilterData} = props
+  let {darkmode, onCahngeTheme, filterCity} = props
 
   const [select, setSelect] = useState("Tuman bo'yicha tanlash ?")
   const [isActive, setIsActive] = useState(false)
-  const [isLanguageActive, setisLanguageActive] = useState(false)
-  const [language, setLanguage] = useState('UZB')
+  // const [isLanguageActive, setisLanguageActive] = useState(false)
+  // const [language, setLanguage] = useState('UZB')
 
   const onChangeSelect = (e) => {
     setSelect(e.target.innerText)
       setIsActive(false)
-      setFilterData(e.target.innerText)
+      filterCity(e.target.innerText)
   }
   // const onChangeLanguage = (e) => {
   //   setLanguage(e.target.innerText)
@@ -23,7 +23,7 @@ function Header(props) {
     return (
       <div className={darkmode ? "header darktheme " : " header"}>
         <div className='header__container'>
-          <a href='#' className = 'header__logo'>
+          <a href='/' className = 'header__logo'>
             <img src={rasm} alt = 'Logo'/>
           </a>
           <div className = 'header__navbar'>

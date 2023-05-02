@@ -7,7 +7,6 @@ function Main(props) {
     let { darkmode, data, filterLeft } = props
 
     let renderData = data?.map(item => {
-        console.log(data)
         let { img, info, name, phone, address, working_day, working_time } = item
 
         return (
@@ -56,6 +55,10 @@ function Main(props) {
                     </div>
                     <div className='main__filter__item'>
                         <ul className='filter__item' onClick={e => filterLeft(e.target.innerText)}>
+                            <li className='filter__link'>
+                                <div className='filter__link__href'>Barcha kurslari
+                                </div>
+                            </li>
                             <li className='filter__link'>
                                 <div className='filter__link__href'>Abituriyentlarni tayyorlash kurslari
                                 </div>

@@ -26,6 +26,7 @@ function App() {
       case "Yakkabog'": setFilterCityData(data.filter(item => item.region === "Yakkabog'")); break;
       default: setFilterCityData(data);
     }
+
     filterLeft()
   }
 
@@ -67,11 +68,10 @@ function App() {
 
   return (
     <div className="App">
-      {/* {console.log(search)} */}
       <Header darkmode={darkmode} onCahngeTheme={onCahngeTheme} filterCity={filterCity} />
       <SearchPanel darkmode={darkmode} setSearch={searchData}/>
       <Main darkmode={darkmode} data={search} filterLeft={filterLeft}/>
-      <Footer />
+      <Footer darkmode={darkmode} />
     </div>
   );
 }

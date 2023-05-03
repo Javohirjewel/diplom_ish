@@ -1,6 +1,5 @@
 import './main.css';
 import Loader from '../loader/loader'
-// import { useState, useEffect } from 'react';
 
 
 function Main(props) {

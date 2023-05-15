@@ -13,6 +13,7 @@ function App() {
   const [fiterCityData, setFilterCityData] = useState(null)
   const [filterLeftItem, setFilterLeftItem] = useState(null)
   const [search, setSearch] = useState(null)
+  const [cnt, setCnt] = useState("Barchasi")
 
   const onCahngeTheme = () => {
     setDarkmode(!darkmode)
@@ -60,15 +61,17 @@ function App() {
       setSearch(filterLeftItem)
     }
   }
-
+  const getProps = (cnt) =>{ 
+  }
   useEffect(() => {
-    getData()
-    filterCity()
-  }, [])
+    getData(cnt)
+    filterCity(cnt)
+    searchData()
+  }, [cnt[-2]])
 
   return (
     <div className="App">
-      <Header darkmode={darkmode} onCahngeTheme={onCahngeTheme} filterCity={filterCity} />
+      <Header getProps = {getProps} darkmode={darkmode} onCahngeTheme={onCahngeTheme} filterCity={filterCity} />
       <SearchPanel darkmode={darkmode} setSearch={searchData}/>
       <Main darkmode={darkmode} data={search} filterLeft={filterLeft}/>
       <Footer darkmode={darkmode} />

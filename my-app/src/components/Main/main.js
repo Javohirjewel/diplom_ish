@@ -7,6 +7,7 @@ function Main(props) {
 
     let renderData = data?.map(item => {
         let { img, info, name, phone, address, working_day, working_time } = item
+        console.log(data)
 
         return (
             <div className='card'>
@@ -41,7 +42,7 @@ function Main(props) {
                             </div>
                         </div>
                         
-                    </div>
+             </div>
         )
     })
 

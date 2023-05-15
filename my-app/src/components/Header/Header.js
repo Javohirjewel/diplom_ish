@@ -3,22 +3,20 @@ import './Header.css'
 import React from 'react';
 import {useState } from 'react';
 function Header(props) {
-  let {darkmode, onCahngeTheme, filterCity} = props
+  let {darkmode, onCahngeTheme, filterCity, getProps} = props
 
   const [select, setSelect] = useState("Tuman bo'yicha tanlash ?")
   const [isActive, setIsActive] = useState(false)
-  // const [isLanguageActive, setisLanguageActive] = useState(false)
-  // const [language, setLanguage] = useState('UZB')
+
+
+  getProps(select)
 
   const onChangeSelect = (e) => {
     setSelect(e.target.innerText)
       setIsActive(false)
       filterCity(e.target.innerText)
   }
-  // const onChangeLanguage = (e) => {
-  //   setLanguage(e.target.innerText)
-  //   setisLanguageActive(false)
-  // }
+
 
     return (
       <div className={darkmode ? "header darktheme " : " header"}>
@@ -57,15 +55,6 @@ function Header(props) {
                     </div> 
                 </div>
               </div>
-              {/* <div className='language'>
-            <div className='language__select' onClick={() => setisLanguageActive(!isLanguageActive)} >
-              {language} 
-            </div>
-            <div onClick={(e) => onChangeLanguage(e)}  className={isLanguageActive ? 'language__drop' : 'hide'}>
-              <div className='drop__language'>UZB</div>
-              <div className='drop__language'>РУС</div>
-            </div>
-              </div> */}
               <div onClick={onCahngeTheme} className="theme">
                 {!darkmode ?
                 <div className='lightIcon'>

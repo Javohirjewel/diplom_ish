@@ -12,8 +12,8 @@ function App() {
   const [data, setData] = useState(null)
   const [fiterCityData, setFilterCityData] = useState(null)
   const [filterLeftItem, setFilterLeftItem] = useState(null)
-  const [search, setSearch] = useState(null)
-  const [cnt, setCnt] = useState("Barchasi")
+  const [search, setSearch] = useState("Owa")
+  const [cnt, setCnt] = useState("Qarshi")
 
   const onCahngeTheme = () => {
     setDarkmode(!darkmode)
@@ -27,7 +27,6 @@ function App() {
       case "Yakkabog'": setFilterCityData(data.filter(item => item.region === "Yakkabog'")); break;
       default: setFilterCityData(data);
     }
-
     filterLeft()
   }
 
@@ -61,19 +60,22 @@ function App() {
       setSearch(filterLeftItem)
     }
   }
+
   const getProps = (cnt) =>{ 
+    setCnt(cnt)
   }
   useEffect(() => {
     getData(cnt)
-    filterCity(cnt)
+    filterCity()
     searchData()
-  }, [cnt[-2]])
+    console.log(filterLeftItem)
+  }, [cnt])
 
   return (
     <div className="App">
       <Header getProps = {getProps} darkmode={darkmode} onCahngeTheme={onCahngeTheme} filterCity={filterCity} />
       <SearchPanel darkmode={darkmode} setSearch={searchData}/>
-      <Main darkmode={darkmode} data={search} filterLeft={filterLeft}/>
+      <Main darkmode={darkmode} data={filterLeftItem} filterLeft={filterLeft}/>
       <Footer darkmode={darkmode} />
     </div>
   );

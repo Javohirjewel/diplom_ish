@@ -1,17 +1,22 @@
 import './main.css';
 import Loader from '../loader/loader'
+import { useEffect, useState } from 'react';
 
 
 function Main(props) {
-    let { darkmode, data, filterLeft } = props
+    let { darkmode, data, filterLeft, search } = props
+    console.log(search)    
 
+    const searchMain = () => {
+        let str = data?.filter(item => item?.name?.toLowerCase()?.startsWith(search?.toLowerCase()))
+        return str
+    }
 
-    let renderData = data?.map(item => {
+    let renderData = searchMain()?.map(item => {
+        {console.log(searchMain()[0])}
         let { img, info, name, phone, address, working_day, working_time } = item
-        console.log(data)
-
         return (
-            <div className='card'>
+            <div className='card' >
                 <div className='card__img'>
                     <img src={img} alt="markaz rasm"/>
                 </div>

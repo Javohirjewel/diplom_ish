@@ -12,8 +12,8 @@ function App() {
   const [data, setData] = useState(null)
   const [fiterCityData, setFilterCityData] = useState(null)
   const [filterLeftItem, setFilterLeftItem] = useState(null)
-  const [search, setSearch] = useState("Owa")
-  const [cnt, setCnt] = useState("Qarshi")
+  const [search, setSearch] = useState(null)
+  const [cnt, setCnt] = useState("")
 
   const onCahngeTheme = () => {
     setDarkmode(!darkmode)
@@ -38,7 +38,7 @@ function App() {
       case "Bolalar uchun tayyorlov markazlari": setFilterLeftItem(fiterCityData.filter(elem => elem.direction === "Kids"));break;
       default: setFilterLeftItem(fiterCityData);
     }
-    searchData()
+    // searchData()
   }
 
   async function getData() {
@@ -48,34 +48,34 @@ function App() {
         setData(json)
         setFilterCityData(json)
         setFilterLeftItem(json)
-        setSearch(json)
+        // setSearch(json)
       })
       .catch(console.error("Serverda xatolik mavjud!"))
   }
 
-  const searchData = (val) => {
-    if(val){
-      setSearch(filterLeftItem.filter(item => item?.name?.toLowerCase()?.startsWith(val.toLowerCase())))
-    }else{
-      setSearch(filterLeftItem)
-    }
-  }
+  // const searchData = (val) => {
+  //   if(val){
+  //     setSearch(filterLeftItem.filter(item => item?.name?.toLowerCase()?.startsWith(val.toLowerCase())))
+  //   }else{
+  //     setSearch(filterLeftItem)
+  //   }
+  // }
 
   const getProps = (cnt) =>{ 
     setCnt(cnt)
   }
   useEffect(() => {
-    getData(cnt)
+    getData()
     filterCity()
-    searchData()
-    console.log(filterLeftItem)
+    // setSearch()
   }, [cnt])
 
   return (
     <div className="App">
+      {/* {console.log(search)} */}
       <Header getProps = {getProps} darkmode={darkmode} onCahngeTheme={onCahngeTheme} filterCity={filterCity} />
-      <SearchPanel darkmode={darkmode} setSearch={searchData}/>
-      <Main darkmode={darkmode} data={filterLeftItem} filterLeft={filterLeft}/>
+      <SearchPanel darkmode={darkmode} setSearch={setSearch}/>
+      <Main darkmode={darkmode} data={filterLeftItem} filterLeft={filterLeft} search={search}/>
       <Footer darkmode={darkmode} />
     </div>
   );

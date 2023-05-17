@@ -12,7 +12,7 @@ function App() {
   const [data, setData] = useState(null)
   const [fiterCityData, setFilterCityData] = useState(null)
   const [filterLeftItem, setFilterLeftItem] = useState(null)
-  const [search, setSearch] = useState(null)
+  const [search, setSearch] = useState("")
   const [cnt, setCnt] = useState("")
 
   const onCahngeTheme = () => {
@@ -38,7 +38,6 @@ function App() {
       case "Bolalar uchun tayyorlov markazlari": setFilterLeftItem(fiterCityData.filter(elem => elem.direction === "Kids"));break;
       default: setFilterLeftItem(fiterCityData);
     }
-    // searchData()
   }
 
   async function getData() {
@@ -48,18 +47,11 @@ function App() {
         setData(json)
         setFilterCityData(json)
         setFilterLeftItem(json)
-        // setSearch(json)
+        // console.log(filterLeftItem)
       })
       .catch(console.error("Serverda xatolik mavjud!"))
+      console.log("sak")
   }
-
-  // const searchData = (val) => {
-  //   if(val){
-  //     setSearch(filterLeftItem.filter(item => item?.name?.toLowerCase()?.startsWith(val.toLowerCase())))
-  //   }else{
-  //     setSearch(filterLeftItem)
-  //   }
-  // }
 
   const getProps = (cnt) =>{ 
     setCnt(cnt)
@@ -67,12 +59,10 @@ function App() {
   useEffect(() => {
     getData()
     filterCity()
-    // setSearch()
   }, [cnt])
 
   return (
     <div className="App">
-      {/* {console.log(search)} */}
       <Header getProps = {getProps} darkmode={darkmode} onCahngeTheme={onCahngeTheme} filterCity={filterCity} />
       <SearchPanel darkmode={darkmode} setSearch={setSearch}/>
       <Main darkmode={darkmode} data={filterLeftItem} filterLeft={filterLeft} search={search}/>

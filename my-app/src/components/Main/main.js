@@ -5,15 +5,24 @@ import { useEffect, useState } from 'react';
 
 function Main(props) {
     let { darkmode, data, filterLeft, search } = props
-    console.log(search)    
+    // console.log(search)    
 
     const searchMain = () => {
-        let str = data?.filter(item => item?.name?.toLowerCase()?.startsWith(search?.toLowerCase()))
-        return str
+       if(search === ""){
+            let str = data?.filter(item => item?.name?.toLowerCase()?.startsWith(search?.toLowerCase()))
+            console.log(search)
+            return str
+        
+       }else{
+            let str = data?.filter(item => item?.name?.toLowerCase()?.startsWith(search?.toLowerCase()))
+            console.log(search)
+            return str
+        }
+       
     }
 
     let renderData = searchMain()?.map(item => {
-        {console.log(searchMain()[0])}
+        // {console.log(searchMain()[0].name)}
         let { img, info, name, phone, address, working_day, working_time } = item
         return (
             <div className='card' >

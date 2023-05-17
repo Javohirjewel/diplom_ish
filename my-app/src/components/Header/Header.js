@@ -16,8 +16,7 @@ function Header(props) {
       setIsActive(false)
       filterCity(e.target.innerText)
   }
-
-
+  
     return (
       <div className={darkmode ? "header darktheme " : " header"}>
         <div className='header__container'>
